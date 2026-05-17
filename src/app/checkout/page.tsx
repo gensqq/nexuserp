@@ -15,24 +15,27 @@ import {
   Loader2,
 } from "lucide-react";
 
-const plans: Record<string, { name: string; price: number; description: string; features: string[] }> = {
+const plans: Record<string, { name: string; price: number; description: string; features: string[]; apiPlan: string }> = {
   starter: {
     name: "Starter",
     price: 29,
     description: "Perfect for small businesses",
     features: ["Up to 5 users", "Basic modules", "5GB storage", "Email support"],
+    apiPlan: "PRO",
   },
   professional: {
     name: "Professional",
     price: 79,
     description: "For growing businesses",
     features: ["Up to 25 users", "All modules", "50GB storage", "Priority support", "AI features"],
+    apiPlan: "ENTERPRISE",
   },
   enterprise: {
     name: "Enterprise",
     price: 199,
     description: "For large organizations",
     features: ["Unlimited users", "All modules", "Unlimited storage", "24/7 support", "AI features", "Custom integrations"],
+    apiPlan: "ENTERPRISE",
   },
 };
 
@@ -66,7 +69,7 @@ function CheckoutForm() {
           "Content-Type": "application/json",
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
-        body: JSON.stringify({ plan: planSlug.toUpperCase() }),
+        body: JSON.stringify({ plan: plan.apiPlan }),
       });
 
       const data = await res.json();
