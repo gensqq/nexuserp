@@ -197,22 +197,22 @@ async function main() {
   // Create employees
   const employees = await Promise.all([
     prisma.employee.create({
-      data: { employeeId: "EMP001", userId: admin.id, firstName: "Admin", lastName: "User", email: "admin@nexus.com", department: "Management", position: "CEO", hireDate: new Date("2022-01-01"), salary: 150000, status: "ACTIVE" },
+      data: { companyId: company.id, employeeId: "EMP001", userId: admin.id, firstName: "Admin", lastName: "User", email: "admin@nexus.com", department: "Management", position: "CEO", hireDate: new Date("2022-01-01"), salary: 150000, status: "ACTIVE" },
     }),
     prisma.employee.create({
-      data: { employeeId: "EMP002", userId: manager.id, firstName: "Sarah", lastName: "Chen", email: "sarah@company.com", phone: "+1 555-1001", department: "Engineering", position: "Senior Developer", hireDate: new Date("2022-03-15"), salary: 125000, status: "ACTIVE" },
+      data: { companyId: company.id, employeeId: "EMP002", userId: manager.id, firstName: "Sarah", lastName: "Chen", email: "sarah@company.com", phone: "+1 555-1001", department: "Engineering", position: "Senior Developer", hireDate: new Date("2022-03-15"), salary: 125000, status: "ACTIVE" },
     }),
     prisma.employee.create({
-      data: { employeeId: "EMP003", firstName: "Mike", lastName: "Ross", email: "mike@company.com", phone: "+1 555-1002", department: "Sales", position: "Sales Manager", hireDate: new Date("2021-06-20"), salary: 95000, status: "ACTIVE" },
+      data: { companyId: company.id, employeeId: "EMP003", firstName: "Mike", lastName: "Ross", email: "mike@company.com", phone: "+1 555-1002", department: "Sales", position: "Sales Manager", hireDate: new Date("2021-06-20"), salary: 95000, status: "ACTIVE" },
     }),
     prisma.employee.create({
-      data: { employeeId: "EMP004", firstName: "Emily", lastName: "Davis", email: "emily@company.com", phone: "+1 555-1003", department: "Finance", position: "Financial Analyst", hireDate: new Date("2023-01-10"), salary: 88000, status: "ACTIVE" },
+      data: { companyId: company.id, employeeId: "EMP004", firstName: "Emily", lastName: "Davis", email: "emily@company.com", phone: "+1 555-1003", department: "Finance", position: "Financial Analyst", hireDate: new Date("2023-01-10"), salary: 88000, status: "ACTIVE" },
     }),
     prisma.employee.create({
-      data: { employeeId: "EMP005", firstName: "Alex", lastName: "Kim", email: "alex@company.com", department: "Design", position: "UI/UX Designer", hireDate: new Date("2022-09-05"), salary: 92000, status: "ACTIVE" },
+      data: { companyId: company.id, employeeId: "EMP005", firstName: "Alex", lastName: "Kim", email: "alex@company.com", department: "Design", position: "UI/UX Designer", hireDate: new Date("2022-09-05"), salary: 92000, status: "ACTIVE" },
     }),
     prisma.employee.create({
-      data: { employeeId: "EMP006", firstName: "Jordan", lastName: "Lee", email: "jordan@company.com", department: "Marketing", position: "Marketing Lead", hireDate: new Date("2023-04-18"), salary: 85000, status: "ON_LEAVE" },
+      data: { companyId: company.id, employeeId: "EMP006", firstName: "Jordan", lastName: "Lee", email: "jordan@company.com", department: "Marketing", position: "Marketing Lead", hireDate: new Date("2023-04-18"), salary: 85000, status: "ON_LEAVE" },
     }),
   ]);
 

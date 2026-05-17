@@ -7,7 +7,13 @@ export async function GET(req: NextRequest) {
     const user = await getAuthUser(req);
     if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
+    // Only show activities for the user's company (or their own if no company)
+    const whereCondition = user.companyId
+      ? { user: { companyId: user.companyId } }
+      : { userId: user.id };
+
     const activities = await prisma.activity.findMany({
+      where: whereCondition,
       take: 20,
       orderBy: { createdAt: "desc" },
       include: { user: { select: { name: true, avatar: true } } },

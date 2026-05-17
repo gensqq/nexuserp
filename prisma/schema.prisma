@@ -56,6 +56,7 @@ model Company {
   journalEntries JournalEntry[]
   emailCampaigns EmailCampaign[]
   emailTemplates EmailTemplate[]
+  employees      Employee[]
 
   @@index([domain])
 }
@@ -260,6 +261,8 @@ model Income {
 // ─── HR & Payroll ─────────────────────────────────────────────
 model Employee {
   id          String   @id @default(cuid())
+  companyId   String
+  company     Company  @relation(fields: [companyId], references: [id])
   employeeId  String   @unique
   userId      String?  @unique
   firstName   String
@@ -280,6 +283,7 @@ model Employee {
   leaveRequests LeaveRequest[]
   payroll       Payroll[]
 
+  @@index([companyId])
   @@index([department])
   @@index([status])
 }

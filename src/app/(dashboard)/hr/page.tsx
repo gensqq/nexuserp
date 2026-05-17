@@ -112,7 +112,8 @@ export default function HRPage() {
       const payload = {
         ...form,
         salary: parseFloat(form.salary) || 0,
-        ...(editingId ? {} : { employeeId: form.employeeId || `EMP${String(employees.length + 1).padStart(3, "0")}` }),
+        // Remove employeeId from payload - backend auto-generates unique IDs
+        ...(editingId ? {} : { employeeId: undefined }),
       };
 
       if (editingId) {

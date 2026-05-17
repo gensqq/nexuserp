@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useAuthStore } from "@/store";
+import { useAuthStore, useNotificationStore } from "@/store";
 import { authAPI } from "@/utils/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,7 @@ import { Zap, Eye, EyeOff, Mail, Lock, User, Building2 } from "lucide-react";
 export default function RegisterPage() {
   const router = useRouter();
   const { login } = useAuthStore();
+  const { clearAll } = useNotificationStore();
   const [formData, setFormData] = useState({ name: "", email: "", company: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -30,6 +31,7 @@ export default function RegisterPage() {
       });
       localStorage.setItem("token", data.token);
       login(data.user, data.token);
+      clearAll();
       router.push("/dashboard");
     } catch (err: any) {
       setError(err.message || "Registration failed. Please try again.");

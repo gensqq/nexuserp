@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
 
     const companyId = user.companyId;
     const where: any = {};
-    if (companyId) where.user = { companyId };
+    if (companyId) where.companyId = companyId;
     if (search) {
       where.OR = [
         { firstName: { contains: search } },
@@ -50,7 +50,6 @@ export async function POST(req: NextRequest) {
 
     const data = await req.json();
     const errors = validate(data, {
-      employeeId: { required: true, type: "string", minLength: 1, maxLength: 50 },
       firstName: { required: true, type: "string", minLength: 1, maxLength: 100 },
       lastName: { required: true, type: "string", minLength: 1, maxLength: 100 },
       email: { required: true, type: "string", maxLength: 255 },
@@ -58,9 +57,23 @@ export async function POST(req: NextRequest) {
     });
     if (errors.length) return NextResponse.json({ error: errors[0] }, { status: 400 });
 
+    // Auto-generate unique employeeId if not provided
+    let employeeId = data.employeeId;
+    if (!employeeId) {
+      const count = await prisma.employee.count();
+      employeeId = `EMP${String(count + 1).padStart(3, "0")}`;
+      // Ensure uniqueness by incrementing if needed
+      let attempt = 0;
+      while (await prisma.employee.findUnique({ where: { employeeId } })) {
+        attempt++;
+        employeeId = `EMP${String(count + 1 + attempt).padStart(3, "0")}`;
+      }
+    }
+
     const employee = await prisma.employee.create({
       data: {
-        employeeId: data.employeeId,
+        companyId: authUser.companyId || "",
+        employeeId,
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
@@ -73,7 +86,10 @@ export async function POST(req: NextRequest) {
       },
     });
     return NextResponse.json({ employee });
-  } catch (error) {
+  } catch (error: any) {
+    if (error.code === "P2002") {
+      return NextResponse.json({ error: "An employee with this ID or email already exists" }, { status: 409 });
+    }
     console.error("Create employee error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
