@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
 
       if (!sheetId) {
         // Create new spreadsheet with sheet named after the module
-        const result = await createSpreadsheet(accessToken, `ADN ERP - ${config.title}`, config.headers, config.title);
+        const result = await createSpreadsheet(accessToken, `NexusERP - ${config.title}`, config.headers, config.title);
         sheetId = result.spreadsheetId;
         sheetUrl = result.url;
       }

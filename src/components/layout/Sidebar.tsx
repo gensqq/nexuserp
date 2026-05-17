@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { useSidebarStore, useAuthStore } from "@/store";
+import { useSidebarStore, useAuthStore, useNotificationStore } from "@/store";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -88,8 +88,10 @@ export default function Sidebar() {
   const router = useRouter();
   const { isCollapsed, toggle, isMobileOpen, setMobileOpen } = useSidebarStore();
   const { user, logout } = useAuthStore();
+  const { clearAll } = useNotificationStore();
 
   const handleLogout = () => {
+    clearAll();
     logout();
     router.push("/login");
   };
@@ -120,7 +122,7 @@ export default function Sidebar() {
             </div>
             {!isCollapsed && (
               <span className="text-lg font-bold bg-gradient-to-r from-blue-500 to-violet-600 bg-clip-text text-transparent">
-                ADN's Tech
+                NexusERP
               </span>
             )}
           </Link>

@@ -87,6 +87,7 @@ interface Notification {
 
 interface NotificationState {
   notifications: Notification[];
+  fetchNotifications: () => Promise<void>;
   addNotification: (notification: Omit<Notification, "id" | "read" | "createdAt">) => void;
   markAsRead: (id: string) => void;
   markAllAsRead: () => void;
@@ -95,32 +96,19 @@ interface NotificationState {
 }
 
 export const useNotificationStore = create<NotificationState>((set, get) => ({
-  notifications: [
-    {
-      id: "1",
-      title: "New Order",
-      message: "Order #1234 has been placed successfully",
-      type: "success",
-      read: false,
-      createdAt: new Date(),
-    },
-    {
-      id: "2",
-      title: "Low Stock Alert",
-      message: "Product 'Widget Pro' is running low on stock",
-      type: "warning",
-      read: false,
-      createdAt: new Date(),
-    },
-    {
-      id: "3",
-      title: "Payment Received",
-      message: "Payment of $2,500 received from Acme Corp",
-      type: "info",
-      read: true,
-      createdAt: new Date(),
-    },
-  ],
+  notifications: [],
+  fetchNotifications: async () => {
+    try {
+      const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+      if (!token) return;
+      const res = await fetch("/api/notifications", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) return;
+      const data = await res.json();
+      set({ notifications: data.notifications || [] });
+    } catch {}
+  },
   addNotification: (notification) =>
     set((state) => ({
       notifications: [

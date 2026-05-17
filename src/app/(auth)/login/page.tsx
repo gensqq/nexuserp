@@ -45,15 +45,15 @@ export default function LoginPage() {
             <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
               <Zap className="w-5 h-5 text-white" />
             </div>
-            <span className="text-2xl font-bold text-white">ADN's Tech</span>
+            <span className="text-2xl font-bold text-white">NexusERP</span>
           </Link>
         </div>
         <div className="relative">
           <h2 className="text-3xl font-bold text-white mb-4">Welcome Back</h2>
-          <p className="text-blue-100 text-lg">Access your business dashboard with AI-powered insights and real-time analytics.</p>
+          <p className="text-blue-100 text-lg">Access your business dashboard with 11 integrated modules and AI-powered insights.</p>
         </div>
         <div className="relative text-blue-100 text-sm">
-          © 2026 ADN's Tech. All rights reserved.
+          © 2026 NexusERP. All rights reserved.
         </div>
       </div>
 
@@ -64,7 +64,7 @@ export default function LoginPage() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center">
               <Zap className="w-4 h-4 text-white" />
             </div>
-            <span className="text-xl font-bold gradient-text">ADN's Tech</span>
+            <span className="text-xl font-bold gradient-text">NexusERP</span>
           </div>
 
           <h1 className="text-2xl font-bold mb-2">Sign in to your account</h1>

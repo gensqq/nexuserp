@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useThemeStore, useSidebarStore, useAuthStore } from "@/store";
+import { useThemeStore, useSidebarStore, useAuthStore, useNotificationStore } from "@/store";
 import { cn } from "@/lib/utils";
 import Sidebar from "@/components/layout/Sidebar";
 import Header from "@/components/layout/Header";
@@ -12,6 +12,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const { theme } = useThemeStore();
   const { isCollapsed } = useSidebarStore();
   const { isAuthenticated, login } = useAuthStore();
+  const { fetchNotifications } = useNotificationStore();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -37,6 +38,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         .then((data) => {
           if (data.user) {
             login(data.user, token);
+            fetchNotifications();
           } else {
             localStorage.removeItem("token");
             router.push("/login");

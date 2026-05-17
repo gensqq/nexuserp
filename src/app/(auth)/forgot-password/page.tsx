@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Zap, Mail, Lock, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { authAPI } from "@/utils/api";
 
 export default function ForgotPasswordPage() {
   const [step, setStep] = useState<"email" | "reset" | "done">("email");
@@ -76,7 +77,7 @@ export default function ForgotPasswordPage() {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center">
               <Zap className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold">ADN&apos;s Tech</span>
+            <span className="text-xl font-bold">NexusERP</span>
           </Link>
         </div>
 

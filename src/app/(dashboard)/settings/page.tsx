@@ -335,11 +335,11 @@ export default function SettingsPage() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Company Name</label>
-                    <Input value={company.name} onChange={(e) => setCompany({ ...company, name: e.target.value })} placeholder="ADN's Tech" />
+                    <Input value={company.name} onChange={(e) => setCompany({ ...company, name: e.target.value })} placeholder="Your Company" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Domain</label>
-                    <Input value={company.domain} onChange={(e) => setCompany({ ...company, domain: e.target.value })} placeholder="adntech.com" />
+                    <Input value={company.domain} onChange={(e) => setCompany({ ...company, domain: e.target.value })} placeholder="yourcompany.com" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Industry</label>

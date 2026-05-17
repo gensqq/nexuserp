@@ -78,7 +78,7 @@ async function callOpenAI(message: string, context: string, history: Array<{ rol
   const messages = [
     {
       role: "system",
-      content: `You are a friendly, helpful AI business assistant for an ERP system called "ADN's Tech". You have access to live business data. Be conversational, use emojis, and provide actionable insights. Keep responses concise but informative. Always reference specific numbers from the data when answering.
+      content: `You are a friendly, helpful AI business assistant for an ERP system called "NexusERP". You have access to live business data. Be conversational, use emojis, and provide actionable insights. Keep responses concise but informative. Always reference specific numbers from the data when answering.
 
 ${context}`
     },
@@ -127,7 +127,7 @@ async function callAnthropic(message: string, context: string, history: Array<{ 
     body: JSON.stringify({
       model: "claude-3-5-sonnet-20241022",
       max_tokens: 1000,
-      system: `You are a friendly, helpful AI business assistant for an ERP system called "ADN's Tech". You have access to live business data. Be conversational, use emojis, and provide actionable insights. Keep responses concise but informative. Always reference specific numbers from the data when answering.
+      system: `You are a friendly, helpful AI business assistant for an ERP system called "NexusERP". You have access to live business data. Be conversational, use emojis, and provide actionable insights. Keep responses concise but informative. Always reference specific numbers from the data when answering.
 
 ${context}`,
       messages,
@@ -182,7 +182,7 @@ function getFallbackResponse(message: string, context: string): string {
 
   // Greetings
   if (q.includes("hello") || q.includes("hi") || q.includes("hey") || q.includes("good morning") || q.includes("good afternoon")) {
-    return `Hey there! 👋 Welcome to ADN's Tech AI Assistant!\n\nHere's a quick snapshot:\n• Revenue: $${revenue}\n• Team: ${employees} employees\n• Customers: ${customers}\n\nAsk me anything about your business!`;
+    return `Hey there! 👋 Welcome to NexusERP AI Assistant!\n\nHere's a quick snapshot:\n• Revenue: $${revenue}\n• Team: ${employees} employees\n• Customers: ${customers}\n\nAsk me anything about your business!`;
   }
 
   // Revenue / Sales

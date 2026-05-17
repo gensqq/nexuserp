@@ -20,21 +20,14 @@ const plans: Record<string, { name: string; price: number; description: string; 
     name: "Starter",
     price: 29,
     description: "Perfect for small businesses",
-    features: ["Up to 5 users", "Basic modules", "5GB storage", "Email support"],
+    features: ["Up to 25 users", "All modules", "1,000 products", "5,000 customers", "AI assistant", "Google Sheets integration"],
     apiPlan: "PRO",
-  },
-  professional: {
-    name: "Professional",
-    price: 79,
-    description: "For growing businesses",
-    features: ["Up to 25 users", "All modules", "50GB storage", "Priority support", "AI features"],
-    apiPlan: "ENTERPRISE",
   },
   enterprise: {
     name: "Enterprise",
-    price: 199,
-    description: "For large organizations",
-    features: ["Unlimited users", "All modules", "Unlimited storage", "24/7 support", "AI features", "Custom integrations"],
+    price: 99,
+    description: "For growing organizations",
+    features: ["Unlimited users", "All modules", "Unlimited products", "Unlimited customers", "AI assistant", "Google Sheets integration", "Priority support"],
     apiPlan: "ENTERPRISE",
   },
 };
@@ -50,8 +43,8 @@ const paymentMethods = [
 function CheckoutForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const planSlug = searchParams.get("plan") || "professional";
-  const plan = plans[planSlug] || plans.professional;
+  const planSlug = searchParams.get("plan") || "starter";
+  const plan = plans[planSlug] || plans.starter;
   const cancelled = searchParams.get("cancelled");
 
   const [processing, setProcessing] = useState(false);
@@ -101,7 +94,7 @@ function CheckoutForm() {
             <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
               <Zap className="w-4 h-4 text-white" />
             </div>
-            <span className="text-xl font-bold text-white">ADN&apos;s Tech</span>
+            <span className="text-xl font-bold text-white">NexusERP</span>
           </Link>
 
           <h1 className="text-3xl font-bold text-white mb-2">Complete your order</h1>

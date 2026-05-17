@@ -12,7 +12,7 @@ export default function PrivacyPage() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center">
               <Zap className="w-5 h-5 text-white" />
             </div>
-            <span className="font-bold">ADN&apos;s Tech</span>
+            <span className="font-bold">NexusERP</span>
           </Link>
         </div>
       </header>

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ADN's Tech - AI-Powered Enterprise Management",
-  description: "Modern SaaS ERP platform with AI-assisted business management, real-time analytics, and modular architecture.",
+  title: "NexusERP - AI-Powered Enterprise Management",
+  description: "Modern SaaS ERP platform with 11 integrated modules, AI-powered insights, and multi-currency support for ASEAN businesses.",
   keywords: ["ERP", "SaaS", "business management", "AI", "analytics"],
 };
 

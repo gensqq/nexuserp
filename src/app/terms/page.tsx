@@ -12,7 +12,7 @@ export default function TermsPage() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center">
               <Zap className="w-5 h-5 text-white" />
             </div>
-            <span className="font-bold">ADN&apos;s Tech</span>
+            <span className="font-bold">NexusERP</span>
           </Link>
         </div>
       </header>
@@ -26,14 +26,14 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-semibold">1. Acceptance of Terms</h2>
             <p className="text-muted-foreground leading-relaxed">
-              By accessing and using ADN&apos;s Tech (&quot;the Service&quot;), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.
+              By accessing and using NexusERP (&quot;the Service&quot;), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold">2. Description of Service</h2>
             <p className="text-muted-foreground leading-relaxed">
-              ADN&apos;s Tech is a cloud-based Enterprise Resource Planning (ERP) platform that provides business management tools including but not limited to: Point of Sale, Customer Relationship Management, Accounting, Human Resources, Project Management, Inventory Management, and Reporting.
+              NexusERP is a cloud-based Enterprise Resource Planning (ERP) platform that provides business management tools including but not limited to: Point of Sale, Customer Relationship Management, Accounting, Human Resources, Project Management, Inventory Management, and Reporting.
             </p>
           </section>
 

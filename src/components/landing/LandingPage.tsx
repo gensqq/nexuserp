@@ -15,6 +15,12 @@ import {
   Package,
   Bot,
   ChevronRight,
+  FolderKanban,
+  Mail,
+  FileText,
+  Settings,
+  Shield,
+  Globe,
 } from "lucide-react";
 
 const features = [
@@ -26,23 +32,29 @@ const features = [
   { icon: Bot, title: "AI Assistant", description: "Natural language search, smart recommendations, and predictive business insights." },
 ];
 
-const stats = [
-  { value: "10K+", label: "Active Users" },
-  { value: "99.9%", label: "Uptime" },
-  { value: "50M+", label: "Transactions" },
-  { value: "4.9/5", label: "Customer Rating" },
+const modules = [
+  { icon: BarChart3, name: "Dashboard", description: "Real-time business overview" },
+  { icon: ShoppingCart, name: "POS System", description: "Point-of-sale with receipt printing" },
+  { icon: Users, name: "CRM", description: "Customer relationship management" },
+  { icon: Calculator, name: "Accounting", description: "Double-entry bookkeeping" },
+  { icon: Users, name: "HR & Payroll", description: "Employee management & payroll" },
+  { icon: Package, name: "Inventory", description: "Stock tracking & purchase orders" },
+  { icon: FolderKanban, name: "Projects", description: "Task & project management" },
+  { icon: Mail, name: "Mailing", description: "Email campaigns & templates" },
+  { icon: FileText, name: "Reports", description: "Custom report generation" },
+  { icon: Bot, name: "AI Assistant", description: "Smart business insights" },
+  { icon: Settings, name: "Settings", description: "Company & integration settings" },
 ];
 
 const testimonials = [
-  { name: "Sarah Johnson", role: "CEO, TechStart", content: "ADN's Tech transformed our operations. The AI insights alone saved us 20 hours per week.", rating: 5 },
-  { name: "Michael Chen", role: "CFO, GlobalCo", content: "The accounting module is incredibly powerful. Real-time financial reports changed how we make decisions.", rating: 5 },
-  { name: "Emily Davis", role: "Operations Lead, MegaCorp", content: "Best ERP we've used. The interface is beautiful and the modular approach means we only pay for what we need.", rating: 5 },
+  { name: "Maria Santos", role: "CEO, RetailPlus PH", content: "NexusERP streamlined our multi-branch operations. The POS and inventory sync is seamless.", rating: 5 },
+  { name: "James Lim", role: "CFO, SG Trading", content: "The accounting module handles multi-currency transactions perfectly. Exactly what we needed for ASEAN operations.", rating: 5 },
+  { name: "Ana Reyes", role: "Operations Lead, MetroSupply", content: "Best ERP for Philippine businesses. GCash and PayMaya payments built-in, no third-party integrations needed.", rating: 5 },
 ];
 
 const pricingPlans = [
-  { slug: "starter", name: "Starter", price: 29, description: "Perfect for small businesses", features: ["Up to 5 users", "Basic modules", "5GB storage", "Email support"], popular: false },
-  { slug: "professional", name: "Professional", price: 79, description: "For growing businesses", features: ["Up to 25 users", "All modules", "50GB storage", "Priority support", "AI features"], popular: true },
-  { slug: "enterprise", name: "Enterprise", price: 199, description: "For large organizations", features: ["Unlimited users", "All modules", "Unlimited storage", "24/7 support", "AI features", "Custom integrations"], popular: false },
+  { slug: "starter", name: "Starter", price: 29, description: "Perfect for small businesses", features: ["Up to 25 users", "All modules", "1,000 products", "5,000 customers", "AI assistant", "Google Sheets integration"], popular: false },
+  { slug: "enterprise", name: "Enterprise", price: 99, description: "For growing organizations", features: ["Unlimited users", "All modules", "Unlimited products", "Unlimited customers", "AI assistant", "Google Sheets integration", "Priority support"], popular: true },
 ];
 
 export default function LandingPage() {
@@ -56,7 +68,7 @@ export default function LandingPage() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center">
                 <Zap className="w-4 h-4 text-white" />
               </div>
-              <span className="text-xl font-bold gradient-text">ADN&apos;s Tech</span>
+              <span className="text-xl font-bold gradient-text">NexusERP</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
@@ -82,27 +94,13 @@ export default function LandingPage() {
               The Future of <span className="gradient-text">Enterprise</span><br />Resource Planning
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              ADN&apos;s Tech combines powerful business modules with AI intelligence to streamline your operations, boost productivity, and drive growth.
+              NexusERP combines powerful business modules with AI intelligence to streamline your operations, boost productivity, and drive growth.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/checkout?plan=professional"><Button size="lg" className="text-base px-8">Start Free Trial <ArrowRight className="w-5 h-5 ml-2" /></Button></Link>
-              <Link href="/dashboard"><Button variant="outline" size="lg" className="text-base px-8">View Demo <ChevronRight className="w-5 h-5 ml-1" /></Button></Link>
+              <Link href="/checkout?plan=starter"><Button size="lg" className="text-base px-8">Start Free Trial <ArrowRight className="w-5 h-5 ml-2" /></Button></Link>
+              <Link href="/register"><Button variant="outline" size="lg" className="text-base px-8">Get Started Free <ChevronRight className="w-5 h-5 ml-1" /></Button></Link>
             </div>
             <p className="text-sm text-muted-foreground mt-4">No credit card required · 14-day free trial</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="border-y border-border/50 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl font-bold gradient-text">{stat.value}</div>
-                <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -122,6 +120,29 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Modules */}
+      <section className="py-24 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">11 Integrated Modules</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Every tool your business needs in one platform. No more juggling multiple apps.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {modules.map((mod) => (
+              <div key={mod.name} className="flex items-center gap-3 p-4 rounded-xl border border-border/50 bg-card hover:shadow-md transition-all duration-200">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <mod.icon className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-medium text-sm">{mod.name}</p>
+                  <p className="text-xs text-muted-foreground">{mod.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -161,7 +182,7 @@ export default function LandingPage() {
             <h2 className="text-3xl font-bold mb-4">Simple, Transparent Pricing</h2>
             <p className="text-muted-foreground">Choose the plan that fits your business</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {pricingPlans.map((plan) => (
               <div key={plan.name} className={`relative p-6 rounded-xl border ${plan.popular ? "border-primary shadow-lg md:scale-105" : "border-border/50"} bg-card`}>
                 {plan.popular && (
@@ -191,7 +212,7 @@ export default function LandingPage() {
       <section className="py-24 bg-gradient-to-br from-blue-600 to-violet-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Transform Your Business?</h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">Join thousands of businesses using ADN&apos;s Tech to streamline operations and drive growth.</p>
+          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">Start streamlining your operations today with NexusERP — no credit card required.</p>
           <Link href="/register"><Button size="lg" variant="secondary" className="text-base px-8">Start Your Free Trial <ArrowRight className="w-5 h-5 ml-2" /></Button></Link>
         </div>
       </section>
@@ -203,7 +224,7 @@ export default function LandingPage() {
             <div>
               <Link href="/" className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center"><Zap className="w-4 h-4 text-white" /></div>
-                <span className="text-xl font-bold gradient-text">ADN&apos;s Tech</span>
+                <span className="text-xl font-bold gradient-text">NexusERP</span>
               </Link>
               <p className="text-sm text-muted-foreground">AI-powered enterprise management platform for modern businesses.</p>
             </div>
@@ -231,7 +252,7 @@ export default function LandingPage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-border/50 mt-8 pt-8 text-center text-sm text-muted-foreground">&copy; {new Date().getFullYear()} ADN&apos;s Tech. All rights reserved.</div>
+          <div className="border-t border-border/50 mt-8 pt-8 text-center text-sm text-muted-foreground">&copy; {new Date().getFullYear()} NexusERP. All rights reserved.</div>
         </div>
       </footer>
     </div>

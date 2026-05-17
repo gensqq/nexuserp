@@ -45,21 +45,21 @@ export default function RegisterPage() {
         <div className="relative">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center"><Zap className="w-5 h-5 text-white" /></div>
-            <span className="text-2xl font-bold text-white">ADN's Tech</span>
+            <span className="text-2xl font-bold text-white">NexusERP</span>
           </Link>
         </div>
         <div className="relative">
           <h2 className="text-3xl font-bold text-white mb-4">Start Your Journey</h2>
-          <p className="text-blue-100 text-lg">Join thousands of businesses using ADN's Tech to streamline operations and drive growth.</p>
+          <p className="text-blue-100 text-lg">Start streamlining your operations today with NexusERP — no credit card required.</p>
         </div>
-        <div className="relative text-blue-100 text-sm">© 2024 ADN's Tech. All rights reserved.</div>
+        <div className="relative text-blue-100 text-sm">© 2026 NexusERP. All rights reserved.</div>
       </div>
 
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <div className="lg:hidden flex items-center gap-2 mb-8">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center"><Zap className="w-4 h-4 text-white" /></div>
-            <span className="text-xl font-bold gradient-text">ADN's Tech</span>
+            <span className="text-xl font-bold gradient-text">NexusERP</span>
           </div>
 
           <h1 className="text-2xl font-bold mb-2">Create your account</h1>
@@ -104,7 +104,7 @@ export default function RegisterPage() {
 
             <div className="flex items-start gap-2">
               <input type="checkbox" className="rounded border-input mt-1" required />
-              <label className="text-sm text-muted-foreground">I agree to the <a href="#" className="text-primary hover:underline">Terms of Service</a> and <a href="#" className="text-primary hover:underline">Privacy Policy</a></label>
+              <label className="text-sm text-muted-foreground">I agree to the <Link href="/terms" className="text-primary hover:underline">Terms of Service</Link> and <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link></label>
             </div>
 
             <Button type="submit" className="w-full" disabled={loading}>{loading ? "Creating account..." : "Create Account"}</Button>
